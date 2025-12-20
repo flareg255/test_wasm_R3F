@@ -1,6 +1,7 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
+
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { useState, useEffect } from "react";
 import ParticlesDisplay from "./ParticlesDisplay";
@@ -42,7 +43,7 @@ export default function Home() {
           enableDamping
         />
 
-        <Environment preset="city" />
+
 
         <WavingLines />
 
