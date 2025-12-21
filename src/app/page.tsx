@@ -6,6 +6,7 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { useState, useEffect } from "react";
 import ParticlesDisplay from "./ParticlesDisplay";
 import WavingLines from "./WavingLines";
+import UltraZoneText from "./UltraZoneText";
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -44,6 +45,8 @@ export default function Home() {
         />
 
         <WavingLines />
+
+        <UltraZoneText />
 
         <ParticlesDisplay />
 
