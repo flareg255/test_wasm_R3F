@@ -13,3 +13,4 @@ wasm-bindgen = "0.2"
 getrandom = { version = "0.2.15", features = ["js"] }
 # rand が getrandom 0.2 を使うように強制する
 rand = { version = "0.8.5" }
+console_error_panic_hook = "0.1"

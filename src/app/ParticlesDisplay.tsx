@@ -2,13 +2,14 @@
 import { useRef, useEffect, useState, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { initWasm } from "../utils/wasm";
+
 
 export default function ParticlesDisplay() {
     const pointsRef = useRef<THREE.Points>(null!);
     const [engine, setEngine] = useState<any>(null);
     const count = 100;
 
-    // 光の粒のテクスチャをプログラムで作成
     const particleTexture = useMemo(() => {
         const canvas = document.createElement('canvas');
         canvas.width = 64;
@@ -24,15 +25,32 @@ export default function ParticlesDisplay() {
     }, []);
 
     useEffect(() => {
-        import("../../wasm-lib/pkg/wasm_lib").then(async (mod) => {
-            await mod.default();
-            setEngine(new mod.PhysicsEngine(count));
+        let active = true;
+
+        initWasm().then((mod) => {
+            if (active) {
+                setEngine(new mod.PhysicsEngine(count));
+            }
         });
-    }, []);
+
+
+        return () => {
+            active = false;
+            setEngine(null);
+
+        };
+    }, [count]);
 
     useFrame(() => {
         if (!engine || !pointsRef.current) return;
-        engine.update();
+
+        try {
+            engine.update();
+        } catch (e) {
+            console.error(e);
+            setEngine(null);
+            return;
+        }
 
         const attrPos = pointsRef.current.geometry.attributes.position;
         const attrSize = pointsRef.current.geometry.attributes.size;
@@ -41,12 +59,19 @@ export default function ParticlesDisplay() {
         const positions = attrPos.array as Float32Array;
         const sizes = attrSize.array as Float32Array;
 
-        for (let i = 0; i < count; i++) {
-            positions[i * 3 + 0] = engine.get_x(i);
-            positions[i * 3 + 1] = engine.get_y(i);
-            positions[i * 3 + 2] = engine.get_z(i);
+        const data = engine.get_all_particles();
 
-            const b = engine.get_brightness(i);
+
+        for (let i = 0; i < count; i++) {
+            const baseIdx = i * 8;
+
+
+            positions[i * 3 + 0] = data[baseIdx + 0];
+            positions[i * 3 + 1] = data[baseIdx + 1];
+            positions[i * 3 + 2] = data[baseIdx + 2];
+
+            const phase = data[baseIdx + 6];
+            const b = Math.sin(phase) * 0.4 + 0.6;
 
             sizes[i] = 0.8 * b;
 
@@ -57,6 +82,8 @@ export default function ParticlesDisplay() {
 
         attrPos.needsUpdate = true;
         attrSize.needsUpdate = true;
+
+        pointsRef.current.geometry.attributes.color.needsUpdate = true;
     });
 
     return (
