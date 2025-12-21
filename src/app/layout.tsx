@@ -45,18 +45,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${teko.variable} ${orbitron.variable} antialiased`}
       >
         {children}
-        <div style={{
-          position: "fixed",
-          bottom: "20px",
-          width: "100%",
-          textAlign: "center",
-          color: "rgba(255, 255, 255, 0.4)",
-          fontFamily: "var(--font-orbitron)",
-          fontSize: "14px",
-          letterSpacing: "0.1em",
-          pointerEvents: "none",
-          zIndex: 9999,
-        }}>
+        <div className="footer">
           © {new Date().getFullYear()} ULTRAZONE FACTORY
         </div>
       </body>
