@@ -43,8 +43,6 @@ export default function Home() {
           enableDamping
         />
 
-
-
         <WavingLines />
 
         <ParticlesDisplay />

@@ -42,7 +42,7 @@ next-env.d.ts
 
 
 # WASM / Rust
-wasm-lib/pkg/
+# wasm-lib/pkg/ (included for Vercel deployment)
 wasm-lib/target/
 
 # Next.js

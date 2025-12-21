@@ -73,7 +73,6 @@ export default function ParticlesDisplay() {
             const phase = data[baseIdx + 6];
             const b = Math.sin(phase) * 0.4 + 0.6;
 
-
             sizes[i] = 0.8 * b;
 
             colors[i * 3 + 0] = 0.2 * b;
