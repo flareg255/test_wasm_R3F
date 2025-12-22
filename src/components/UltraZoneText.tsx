@@ -6,7 +6,7 @@ export default function UltraZoneText() {
         <Html
             position={[0, 1.5, 0]}
             center
-            distanceFactor={10} // Optional: makes it scale with distance if desired
+            distanceFactor={10}
         >
             <div className="ultrazone-text">
                 ULTRAZONE<br />FACTORY
