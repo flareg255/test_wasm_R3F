@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import GalleryItem from './_components/GalleryItem';
 
 export const metadata: Metadata = {
-    title: 'Gallery - ULTRAZONE FACTORY',
+    title: 'ULTRAZONE FACTORY / GALLERY',
     description: 'Experiments and Demonstrations',
 };
 

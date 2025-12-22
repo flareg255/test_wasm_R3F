@@ -254,6 +254,15 @@ export class WaveLineEngine {
 }
 if (Symbol.dispose) WaveLineEngine.prototype[Symbol.dispose] = WaveLineEngine.prototype.free;
 
+/**
+ * @param {number} time
+ * @returns {number}
+ */
+export function calculate_rotation(time) {
+    const ret = wasm.calculate_rotation(time);
+    return ret;
+}
+
 const EXPECTED_RESPONSE_TYPES = new Set(['basic', 'cors', 'default']);
 
 async function __wbg_load(module, imports) {

@@ -22,11 +22,15 @@ export default function GalleryLayout({
     return (
         <div className="relative w-full h-full">
             <div className="fixed top-8 left-8 z-50">
-                <Link href="/gallery">
-                    <h1 className="ultrazone-text !text-2xl !text-left !pointer-events-auto cursor-pointer hover:opacity-80 transition-opacity">
+                <div className="flex items-center gap-2 ultrazone-text !text-2xl !text-left !pointer-events-auto">
+                    <Link href="/" className="cursor-pointer hover:opacity-80 transition-opacity">
+                        ULTRAZONE FACTORY
+                    </Link>
+                    <span className="text-gray-500">/</span>
+                    <Link href="/gallery" className="cursor-pointer hover:opacity-80 transition-opacity">
                         GALLERY
-                    </h1>
-                </Link>
+                    </Link>
+                </div>
             </div>
             {children}
         </div>

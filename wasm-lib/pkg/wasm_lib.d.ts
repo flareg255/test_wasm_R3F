@@ -23,10 +23,13 @@ export class WaveLineEngine {
   update(time: number): void;
 }
 
+export function calculate_rotation(time: number): number;
+
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
+  readonly calculate_rotation: (a: number) => number;
   readonly __wbg_physicsengine_free: (a: number, b: number) => void;
   readonly physicsengine_get_all_particles: (a: number) => [number, number];
   readonly physicsengine_get_brightness: (a: number, b: number) => number;
