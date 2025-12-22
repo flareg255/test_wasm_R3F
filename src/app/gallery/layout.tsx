@@ -21,8 +21,8 @@ export default function GalleryLayout({
 
     return (
         <div className="relative w-full h-full">
-            <div className="fixed top-8 left-8 z-50">
-                <div className="flex items-center gap-2 ultrazone-text !text-2xl !text-left !pointer-events-auto">
+            <div className="fixed top-[5%] left-[5%] z-50 w-[90%] pointer-events-none">
+                <div className="flex flex-wrap items-center gap-2 ultrazone-text !text-lg md:!text-2xl !text-left pointer-events-auto">
                     <Link href="/" className="cursor-pointer hover:opacity-80 transition-opacity">
                         ULTRAZONE FACTORY
                     </Link>
