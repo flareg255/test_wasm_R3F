@@ -39,6 +39,7 @@ export default function Home() {
 
                     <WavingLines />
                     <ParticlesDisplay />
+                    <UltraZoneText />
 
                     <EffectComposer>
                         <Bloom
@@ -51,18 +52,10 @@ export default function Home() {
                 </Canvas>
             </div>
 
-            <div className="canvas-overlay">
-                <Canvas
-                    camera={{ position: [0, 0, 5], fov: 75 }}
-                    gl={{ alpha: true }}
-                >
-                    <UltraZoneText />
-                </Canvas>
-                <div className="home-gallery-link-container">
-                    <a href="/gallery" className="home-gallery-link">
-                        ENTER GALLERY →
-                    </a>
-                </div>
+            <div className="home-gallery-link-container">
+                <a href="/gallery" className="home-gallery-link">
+                    ENTER GALLERY →
+                </a>
             </div>
 
         </main>

@@ -32,7 +32,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-orbitron), var(--font-teko), var(--font-inter), sans-serif;
-  touch-action: none;
 }
 
 .main-container {
@@ -84,14 +83,13 @@ body {
   z-index: 10;
 }
 
-.canvas-overlay {
+.canvas-overlay-component {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
 .pointer-events-none {
