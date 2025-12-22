@@ -9,7 +9,7 @@ export default function Box(props: any) {
     const [wasmModule, setWasmModule] = useState<any>(null);
 
     useEffect(() => {
-        import("../../wasm-lib/pkg/wasm_lib").then(async (module) => {
+        import("../../../../wasm-lib/pkg/wasm_lib").then(async (module) => {
             await module.default();
             setWasmModule(module);
         });

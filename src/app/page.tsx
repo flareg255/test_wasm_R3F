@@ -58,6 +58,11 @@ export default function Home() {
         >
           <UltraZoneText />
         </Canvas>
+        <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', pointerEvents: 'auto' }}>
+          <a href="/gallery" className="text-white/50 hover:text-white text-sm tracking-widest transition-colors">
+            ENTER GALLERY →
+          </a>
+        </div>
       </div>
 
     </main>
