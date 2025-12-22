@@ -1,17 +1,13 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Box from "../../../components/Box";
+import Box from "./Box";
 import Link from "next/link";
 
 export default function BoxPage() {
     return (
         <main className="main-container relative bg-black">
-            <div className="absolute top-8 left-8 z-10">
-                <Link href="/gallery" className="text-white/50 hover:text-white font-orbitron transition-colors">
-                    ← GALLERY
-                </Link>
-            </div>
+
 
             <div className="absolute bottom-8 left-0 w-full text-center pointer-events-none z-10">
                 <h1 className="text-4xl font-teko text-white tracking-widest">WASM ROTATION CUBE</h1>
