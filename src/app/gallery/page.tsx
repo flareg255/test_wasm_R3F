@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import GalleryItem from './_components/GalleryItem';
 
 export const metadata: Metadata = {
-    title: 'ULTRAZONE FACTORY / GALLERY',
-    description: 'Experiments and Demonstrations',
+    title: 'ULTRAZONE FACTORY / GALLERY / WASM CUBE',
+    description: 'WASM CUBE',
 };
 
 export default function GalleryPage() {
