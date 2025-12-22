@@ -31,8 +31,12 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ultrazone.blue'),
   title: "ULTRAZONE FACTORY",
   description: "ULTRAZONE FACTORYでは宮崎の地域に根ざしたサイト・システムをご提案します。お気軽にお問い合わせください。",
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({
