@@ -159,3 +159,13 @@ body {
 .home-gallery-link:hover {
   color: white;
 }
+
+.ultrazone-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+  width: 100%;
+}

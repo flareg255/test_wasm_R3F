@@ -39,7 +39,6 @@ export default function Home() {
 
                     <WavingLines />
                     <ParticlesDisplay />
-                    <UltraZoneText />
 
                     <EffectComposer>
                         <Bloom
@@ -51,6 +50,8 @@ export default function Home() {
                     </EffectComposer>
                 </Canvas>
             </div>
+
+            <UltraZoneText />
 
             <div className="home-gallery-link-container">
                 <a href="/gallery" className="home-gallery-link">
