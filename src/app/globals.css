@@ -136,9 +136,10 @@ body {
 }
 
 .home-gallery-link-container {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 50;
   pointer-events: auto;
 }
 
