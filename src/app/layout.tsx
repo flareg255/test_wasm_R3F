@@ -37,6 +37,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  openGraph: {
+    title: 'ULTRAZONE FACTORY',
+    description: 'ULTRAZONE FACTORYでは宮崎の地域に根ざしたサイト・システムをご提案します。',
+    url: 'https://ultrazone.blue',
+    siteName: 'ULTRAZONE FACTORY',
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ULTRAZONE FACTORY',
+    description: 'ULTRAZONE FACTORYでは宮崎の地域に根ざしたサイト・システムをご提案します。',
+  },
 };
 
 export default function RootLayout({
