@@ -16,18 +16,18 @@ export default function GalleryLayout({
     }, []);
 
     if (!isClient) {
-        return null; // またはローディングスピナーなど
+        return null;
     }
 
     return (
         <div className="relative w-full h-full">
-            <div className="fixed top-[5%] left-[5%] z-50 w-[90%] pointer-events-none">
-                <div className="flex flex-wrap items-center gap-2 ultrazone-text !text-lg md:!text-2xl !text-left pointer-events-auto">
-                    <Link href="/" className="cursor-pointer hover:opacity-80 transition-opacity">
+            <div className="gallery-header-container">
+                <div className="gallery-header-content">
+                    <Link href="/" className="gallery-link">
                         ULTRAZONE FACTORY
                     </Link>
-                    <span className="text-gray-500">/</span>
-                    <Link href="/gallery" className="cursor-pointer hover:opacity-80 transition-opacity">
+                    <span className="gallery-separator">/</span>
+                    <Link href="/gallery" className="gallery-link">
                         GALLERY
                     </Link>
                 </div>

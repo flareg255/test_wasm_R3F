@@ -7,8 +7,6 @@ import Link from "next/link";
 export default function BoxPage() {
     return (
         <main className="main-container relative bg-black">
-
-
             <div className="absolute bottom-8 left-0 w-full text-center pointer-events-none z-10">
                 <h1 className="text-4xl font-teko text-white tracking-widest">WASM ROTATION CUBE</h1>
             </div>
