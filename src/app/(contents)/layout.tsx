@@ -46,7 +46,7 @@ export default function ContentLayout({
                     {currentSection === 'ABOUT' ? 'ABOUT US' : currentSection}
                 </h1>
             </div>
-            <div className="fixed top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black -z-10 pointer-events-none opacity-50" />
+
             {children}
         </div>
     );
