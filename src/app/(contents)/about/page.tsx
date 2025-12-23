@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
     return (
         <main className="main-container !h-auto min-h-screen !overflow-y-auto relative flex flex-col items-center justify-center bg-background text-foreground py-20">
-            <div className="z-10 w-full max-w-4xl px-6 text-center">
+            <article className="z-10 w-full max-w-4xl px-6 text-center">
                 <h1 className="mb-16 text-6xl md:text-8xl font-teko tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">
                     ABOUT US
                 </h1>
@@ -34,7 +34,7 @@ export default function AboutPage() {
                     </p>
                 </div>
 
-                <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
+                <section className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left" aria-label="Technical Skills">
                     {/* Frontend */}
                     <div className="space-y-4">
                         <h2 className="text-2xl font-teko tracking-wider text-cyan-400 border-b border-cyan-400/30 pb-2 mb-4">
@@ -83,17 +83,17 @@ export default function AboutPage() {
                             <li>Docker / CI/CD</li>
                         </ul>
                     </div>
-                </div>
+                </section>
 
-                <div className="mt-24">
+                <nav className="mt-24">
                     <Link
                         href="/"
                         className="inline-block text-gray-500 hover:text-white tracking-widest text-sm transition-colors font-orbitron"
                     >
                         ← BACK TO HOME
                     </Link>
-                </div>
-            </div>
+                </nav>
+            </article>
 
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black -z-10 pointer-events-none opacity-50" />
         </main>

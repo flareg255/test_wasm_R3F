@@ -84,9 +84,9 @@ export default function RootLayout({
       >
         <Navigation />
         {children}
-        <div className="footer">
+        <footer className="footer">
           © {new Date().getFullYear()} ULTRAZONE FACTORY
-        </div>
+        </footer>
       </body>
     </html>
   );
