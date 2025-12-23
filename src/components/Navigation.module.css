@@ -17,6 +17,14 @@
     mix-blend-mode: difference;
 }
 
+@media (max-width: 767px) {
+    .toggleButton {
+        top: 5px;
+        right: 10px;
+        gap: 6px;
+    }
+}
+
 .line {
     width: 32px;
     height: 2px;

@@ -33,11 +33,11 @@ export default function Navigation() {
                     <Link href="/" className={styles.link} onClick={close}>
                         HOME
                     </Link>
-                    <Link href="/gallery" className={styles.link} onClick={close}>
-                        GALLERY
-                    </Link>
                     <Link href="/about" className={styles.link} onClick={close}>
                         ABOUT
+                    </Link>
+                    <Link href="/gallery" className={styles.link} onClick={close}>
+                        GALLERY
                     </Link>
                 </nav>
             </aside>
