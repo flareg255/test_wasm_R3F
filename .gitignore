@@ -47,4 +47,4 @@ next-env.d.ts
 wasm-lib/target/
 
 # Next.js
-node_modules/
+
