@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <main className="relative flex flex-col items-center text-foreground pt-20 pb-20 w-full">
+        <main className="main-container relative flex flex-col items-center text-foreground pt-20 pb-20 w-full">
             <article className="z-10 w-full max-w-4xl px-6 text-center">
 
 
@@ -31,9 +31,6 @@ export default function AboutPage() {
                         一人のフルスタックエンジニアが、一気通貫した技術ソリューションを提供します。
                     </p>
                 </div>
-
-                {/* Service Domain */}
-
 
                 <section className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-left w-full" aria-label="Technical Skills">
                     {/* Frontend */}
