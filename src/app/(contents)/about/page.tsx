@@ -17,21 +17,61 @@ export default function AboutPage() {
                     ABOUT US
                 </h1>
 
-                <div className="space-y-10 text-lg md:text-xl font-inter tracking-wide text-gray-300 leading-loose">
+                <div className="space-y-8 text-lg md:text-xl font-inter tracking-wide text-gray-300 leading-loose">
                     <p>
-                        Next.js / React / Vue によるモダンUI、
+                        ULTRAZONE FACTORYは、Webと業務システムの境界を超えて開発を行う
                         <br className="hidden md:block" />
-                        Django / Laravel でのバックエンド開発に加え、
-                        <br className="hidden md:block" />
-                        SharePoint Framework (SPFx) によるMS365拡張まで。
+                        Webエンジニアリング・スタジオです。
                     </p>
-                    <p>
-                        ULTRAZONE FACTORYは、
+                    <p className="text-base md:text-lg text-gray-400">
+                        Next.jsやReactによる没入感のあるフロントエンド表現から、
                         <br className="hidden md:block" />
-                        Webと業務システムの境界を超えて一気通貫で開発する
+                        AWS上の堅牢なインフラ構築、
                         <br className="hidden md:block" />
-                        エンジニアリング・スタジオです。
+                        そしてSharePoint Framework (SPFx) を用いたエンタープライズ環境の拡張まで。
+                        <br />
+                        一人のフルスタックエンジニアが、一気通貫した技術ソリューションを提供します。
                     </p>
+                </div>
+
+                <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                    {/* Frontend */}
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-teko tracking-wider text-cyan-400 border-b border-cyan-400/30 pb-2 mb-4">
+                            Frontend
+                        </h2>
+                        <ul className="space-y-2 text-gray-400 font-inter text-sm md:text-base">
+                            <li>Next.js / React</li>
+                            <li>Nuxt / Vue.js</li>
+                            <li>Three.js / WebGL</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+
+                    {/* Backend */}
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-teko tracking-wider text-purple-400 border-b border-purple-400/30 pb-2 mb-4">
+                            Backend
+                        </h2>
+                        <ul className="space-y-2 text-gray-400 font-inter text-sm md:text-base">
+                            <li>Python (Django/FastAPI)</li>
+                            <li>PHP (Laravel)</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </div>
+
+                    {/* Enterprise & Cloud */}
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-teko tracking-wider text-emerald-400 border-b border-emerald-400/30 pb-2 mb-4">
+                            Enterprise & Cloud
+                        </h2>
+                        <ul className="space-y-2 text-gray-400 font-inter text-sm md:text-base">
+                            <li>AWS Architecture</li>
+                            <li>SharePoint Framework (SPFx)</li>
+                            <li>Microsoft 365 Integration</li>
+                            <li>Docker / CI/CD</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="mt-24">
