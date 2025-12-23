@@ -14,7 +14,6 @@ export default function AboutPage() {
         <main className="main-container relative flex flex-col items-center text-foreground pt-20 pb-20 w-full">
             <article className="z-10 w-full max-w-4xl px-6 text-center">
 
-
                 <div className="space-y-8 text-lg md:text-xl font-inter tracking-wide text-gray-300 leading-loose">
                     <p>
                         ULTRAZONE FACTORYは、Webと業務システムの境界を超えて開発を行う
