@@ -40,6 +40,13 @@ export default function ContentLayout({
                     )}
                 </div>
             </div>
+
+            <div className="pt-40 pb-10 text-center z-10 relative pointer-events-none">
+                <h1 className="text-6xl md:text-8xl font-teko tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">
+                    {currentSection === 'ABOUT' ? 'ABOUT US' : currentSection}
+                </h1>
+            </div>
+            <div className="fixed top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black -z-10 pointer-events-none opacity-50" />
             {children}
         </div>
     );

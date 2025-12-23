@@ -11,11 +11,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <main className="main-container !h-auto min-h-screen !overflow-y-auto relative flex flex-col items-center justify-center bg-background text-foreground py-20">
+        <main className="relative flex flex-col items-center text-foreground pt-20 pb-20 w-full">
             <article className="z-10 w-full max-w-4xl px-6 text-center">
-                <h1 className="mb-16 text-6xl md:text-8xl font-teko tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">
-                    ABOUT US
-                </h1>
+
 
                 <div className="space-y-8 text-lg md:text-xl font-inter tracking-wide text-gray-300 leading-loose">
                     <p>
@@ -34,7 +32,10 @@ export default function AboutPage() {
                     </p>
                 </div>
 
-                <section className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left" aria-label="Technical Skills">
+                {/* Service Domain */}
+
+
+                <section className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-left w-full" aria-label="Technical Skills">
                     {/* Frontend */}
                     <div className="space-y-4">
                         <h2 className="text-2xl font-teko tracking-wider text-cyan-400 border-b border-cyan-400/30 pb-2 mb-4">
@@ -54,7 +55,7 @@ export default function AboutPage() {
                             Backend
                         </h2>
                         <ul className="space-y-2 text-gray-400 font-inter text-sm md:text-base">
-                            <li>Python (Django/FastAPI)</li>
+                            <li>Python (Django)</li>
                             <li>PHP (Laravel)</li>
                             <li>Node.js</li>
                         </ul>
@@ -83,6 +84,16 @@ export default function AboutPage() {
                             <li>Docker / CI/CD</li>
                         </ul>
                     </div>
+                    {/* Service Domain */}
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-teko tracking-wider text-pink-400 border-b border-pink-400/30 pb-2 mb-4">
+                            Data Collection & Analysis
+                        </h2>
+                        <ul className="space-y-4 text-gray-400 font-inter text-sm md:text-base">
+                            <li>Scrapy</li>
+                            <li>Selenium</li>
+                        </ul>
+                    </div>
                 </section>
 
                 <nav className="mt-24">
@@ -95,7 +106,6 @@ export default function AboutPage() {
                 </nav>
             </article>
 
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black -z-10 pointer-events-none opacity-50" />
         </main>
     );
 }
