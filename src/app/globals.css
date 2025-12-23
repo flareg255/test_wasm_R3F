@@ -40,7 +40,28 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #000;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.main-scene-placeholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #101010;
+  z-index: -1;
+}
+
+.main-scene-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
 }
 
 .footer {
@@ -158,6 +179,7 @@ body {
 
 .home-gallery-link:hover {
   color: white;
+  font-size: 0.875rem;
 }
 
 .ultrazone-text-container {
