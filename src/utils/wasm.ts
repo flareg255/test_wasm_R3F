@@ -1,9 +1,9 @@
-let wasmInitPromise: Promise<typeof import("../../wasm-lib/pkg/wasm_lib")> | null = null;
+let wasmInitPromise: Promise<typeof import("@/wasm-lib/pkg/wasm_lib")> | null = null;
 
 
 export const initWasm = async () => {
     if (!wasmInitPromise) {
-        wasmInitPromise = import("../../wasm-lib/pkg/wasm_lib").then(async (mod) => {
+        wasmInitPromise = import("@/wasm-lib/pkg/wasm_lib").then(async (mod) => {
 
             const exports = await mod.default();
 

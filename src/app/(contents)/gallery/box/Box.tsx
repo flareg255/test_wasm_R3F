@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Mesh } from "three";
+import { initWasm } from "@/src/utils/wasm";
 
 export default function Box(props: any) {
     const meshRef = useRef<Mesh>(null!);
@@ -9,8 +10,7 @@ export default function Box(props: any) {
     const [wasmModule, setWasmModule] = useState<any>(null);
 
     useEffect(() => {
-        import("../../../../wasm-lib/pkg/wasm_lib").then(async (module) => {
-            await module.default();
+        initWasm().then((module) => {
             setWasmModule(module);
         });
     }, []);
