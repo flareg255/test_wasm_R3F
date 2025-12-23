@@ -34,7 +34,7 @@ export default function AboutPage() {
                     </p>
                 </div>
 
-                <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
                     {/* Frontend */}
                     <div className="space-y-4">
                         <h2 className="text-2xl font-teko tracking-wider text-cyan-400 border-b border-cyan-400/30 pb-2 mb-4">
@@ -57,6 +57,17 @@ export default function AboutPage() {
                             <li>Python (Django/FastAPI)</li>
                             <li>PHP (Laravel)</li>
                             <li>Node.js</li>
+                        </ul>
+                    </div>
+
+                    {/* Content Management */}
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-teko tracking-wider text-orange-400 border-b border-orange-400/30 pb-2 mb-4">
+                            CMS & Architecture
+                        </h2>
+                        <ul className="space-y-2 text-gray-400 font-inter text-sm md:text-base">
+                            <li>Headless CMS Architecture<br /><span className="text-xs text-gray-500">(WordPress + Next.js)</span></li>
+                            <li>WordPress Theme/Plugin Dev</li>
                         </ul>
                     </div>
 
