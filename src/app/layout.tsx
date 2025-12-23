@@ -32,14 +32,23 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ultrazone.blue'),
-  title: "ULTRAZONE FACTORY",
-  description: "ULTRAZONE FACTORYでは宮崎の地域に根ざしたサイト・システムをご提案します。お気軽にお問い合わせください。",
+  title: "ULTRAZONE FACTORY | Web Engineering & Cloud Solutions",
+  description: 'Next.js/React/VueによるモダンUI、Django/Laravelでのバックエンド開発に加え、SharePoint Framework (SPFx) によるMS365拡張まで。ULTRAZONE FACTORYは、Webと業務システムの境界を超えて一気通貫で開発するエンジニアリング・スタジオです。',
   alternates: {
     canonical: '/',
   },
+  keywords: [
+    'Web開発',
+    'フルスタックエンジニア',
+    'Next.js', 'React', 'Nuxt', 'Vue.js',
+    'Django', 'Python',
+    'Laravel', 'PHP',
+    'AWS',
+    'SharePoint Framework', 'SPFx', 'Microsoft 365'
+  ],
   openGraph: {
-    title: 'ULTRAZONE FACTORY',
-    description: 'ULTRAZONE FACTORYでは宮崎の地域に根ざしたサイト・システムをご提案します。',
+    title: 'ULTRAZONE FACTORY | Web Engineering & Cloud Solutions',
+    description: 'Next.js/React/VueによるモダンUI、Django/Laravelでのバックエンド開発に加え、SharePoint Framework (SPFx) によるMS365拡張まで。ULTRAZONE FACTORYは、Webと業務システムの境界を超えて一気通貫で開発するエンジニアリング・スタジオです。',
     url: 'https://ultrazone.blue',
     siteName: 'ULTRAZONE FACTORY',
     locale: 'ja_JP',
@@ -47,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ULTRAZONE FACTORY',
-    description: 'ULTRAZONE FACTORYでは宮崎の地域に根ざしたサイト・システムをご提案します。',
+    title: 'ULTRAZONE FACTORY | Web Engineering & Cloud Solutions',
+    description: 'Next.js/React/VueによるモダンUI、Django/Laravelでのバックエンド開発に加え、SharePoint Framework (SPFx) によるMS365拡張まで。ULTRAZONE FACTORYは、Webと業務システムの境界を超えて一気通貫で開発するエンジニアリング・スタジオです。',
   },
 };
 
