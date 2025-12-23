@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
     return (
-        <main className="main-container relative flex flex-col items-center justify-center text-white bg-black">
+        <main className="relative flex flex-col items-center text-white pt-20 pb-20 w-full">
             <article className="z-10 text-center">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
                     <GalleryItem

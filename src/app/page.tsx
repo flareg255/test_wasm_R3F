@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
     return (
-        <main className="main-container relative min-h-screen">
+        <main className="main-container relative min-h-screen overflow-hidden">
             <TopMainScene />
 
             <UltraZoneText />
