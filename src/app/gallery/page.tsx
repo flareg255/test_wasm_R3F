@@ -6,6 +6,9 @@ import GalleryItem from './_components/GalleryItem';
 export const metadata: Metadata = {
     title: 'ULTRAZONE FACTORY / GALLERY / WASM CUBE',
     description: 'WASM CUBE',
+    alternates: {
+        canonical: '/gallery',
+    },
 };
 
 export default function GalleryPage() {

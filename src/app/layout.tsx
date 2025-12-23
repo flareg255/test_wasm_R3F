@@ -36,9 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://ultrazone.blue'),
   title: "ULTRAZONE FACTORY | Web Engineering & Cloud Solutions",
   description: 'Next.js/React/VueによるモダンUI、Django/Laravelでのバックエンド開発に加え、SharePoint Framework (SPFx) によるMS365拡張まで。ULTRAZONE FACTORYは、Webと業務システムの境界を超えて一気通貫で開発するエンジニアリング・スタジオです。',
-  alternates: {
-    canonical: '/',
-  },
+
   keywords: [
     'Web開発',
     'フルスタックエンジニア',
