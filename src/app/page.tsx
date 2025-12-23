@@ -14,12 +14,6 @@ export default function Home() {
             <TopMainScene />
 
             <UltraZoneText />
-
-            <div className="home-gallery-link-container">
-                <a href="/gallery" className="home-gallery-link">
-                    ENTER GALLERY →
-                </a>
-            </div>
         </main>
     );
 }

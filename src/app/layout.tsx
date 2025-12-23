@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Teko, Orbitron } from "next/font/google";
 import { GoogleTagManager } from '@next/third-parties/google'
-import "./globals.css";
+import "@/src/styles/globals.css";
+import Navigation from "@/src/components/Navigation";
 
 
 
@@ -53,11 +54,20 @@ export const metadata: Metadata = {
     siteName: 'ULTRAZONE FACTORY',
     locale: 'ja_JP',
     type: 'website',
+    images: [
+      {
+        url: '/images/og-main.png',
+        width: 1200,
+        height: 630,
+        alt: 'ULTRAZONE FACTORY',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ULTRAZONE FACTORY | Web Engineering & Cloud Solutions',
     description: 'Next.js/React/VueによるモダンUI、Django/Laravelでのバックエンド開発に加え、SharePoint Framework (SPFx) によるMS365拡張まで。ULTRAZONE FACTORYは、Webと業務システムの境界を超えて一気通貫で開発するエンジニアリング・スタジオです。',
+    images: ['/images/og-main.png'],
   },
 };
 
@@ -72,6 +82,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${teko.variable} ${orbitron.variable} antialiased`}
       >
+        <Navigation />
         {children}
         <div className="footer">
           © {new Date().getFullYear()} ULTRAZONE FACTORY
