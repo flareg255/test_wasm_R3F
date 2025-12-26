@@ -128,6 +128,10 @@ const PhysicsEngineFinalization = (typeof FinalizationRegistry === 'undefined')
     ? { register: () => {}, unregister: () => {} }
     : new FinalizationRegistry(ptr => wasm.__wbg_physicsengine_free(ptr >>> 0, 1));
 
+const VerticalStreamEngineFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_verticalstreamengine_free(ptr >>> 0, 1));
+
 const WaveLineEngineFinalization = (typeof FinalizationRegistry === 'undefined')
     ? { register: () => {}, unregister: () => {} }
     : new FinalizationRegistry(ptr => wasm.__wbg_wavelineengine_free(ptr >>> 0, 1));
@@ -206,6 +210,41 @@ export class PhysicsEngine {
     }
 }
 if (Symbol.dispose) PhysicsEngine.prototype[Symbol.dispose] = PhysicsEngine.prototype.free;
+
+export class VerticalStreamEngine {
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        VerticalStreamEngineFinalization.unregister(this);
+        return ptr;
+    }
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_verticalstreamengine_free(ptr, 0);
+    }
+    /**
+     * @returns {Float32Array}
+     */
+    get_all_particles() {
+        const ret = wasm.verticalstreamengine_get_all_particles(this.__wbg_ptr);
+        var v1 = getArrayF32FromWasm0(ret[0], ret[1]).slice();
+        wasm.__wbindgen_free(ret[0], ret[1] * 4, 4);
+        return v1;
+    }
+    /**
+     * @param {number} num
+     */
+    constructor(num) {
+        const ret = wasm.verticalstreamengine_new(num);
+        this.__wbg_ptr = ret >>> 0;
+        VerticalStreamEngineFinalization.register(this, this.__wbg_ptr, this);
+        return this;
+    }
+    update() {
+        wasm.verticalstreamengine_update(this.__wbg_ptr);
+    }
+}
+if (Symbol.dispose) VerticalStreamEngine.prototype[Symbol.dispose] = VerticalStreamEngine.prototype.free;
 
 export class WaveLineEngine {
     __destroy_into_raw() {
