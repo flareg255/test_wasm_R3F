@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   webpack: (config) => {
     config.experiments = { ...config.experiments, asyncWebAssembly: true };
     return config;
   },
+  trailingSlash: false,
 };
 
 export default nextConfig;
