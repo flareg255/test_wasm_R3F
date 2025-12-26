@@ -3,6 +3,7 @@ import { useRef, useMemo, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { initWasm } from "../utils/wasm";
+import { useWasmEngine } from "../hooks/useWasmEngine";
 
 
 const SingleLine = ({
@@ -114,28 +115,14 @@ const SingleLine = ({
 };
 
 export default function WavingLines() {
-    const [engine, setEngine] = useState<any>(null);
-
     const lineCount = 15;
     const segments = 100;
     const width = 25;
 
-    useEffect(() => {
-        setEngine(null);
-
-        let active = true;
-
-        initWasm().then((mod) => {
-            if (active) {
-                setEngine(new mod.WaveLineEngine(lineCount, segments, width));
-            }
-        });
-
-        return () => {
-            active = false;
-            setEngine(null);
-        };
-    }, [lineCount, segments, width]);
+    const engine = useWasmEngine(
+        (mod) => new mod.WaveLineEngine(lineCount, segments, width),
+        [lineCount, segments, width]
+    );
 
     useFrame((state) => {
         if (engine) {

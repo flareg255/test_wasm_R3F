@@ -21,6 +21,11 @@ export default function GalleryPage() {
                         title="WASM CUBE"
                         description="A simple 3D cube manipulated by Rust/Wasm physics."
                     />
+                    <GalleryItem
+                        href="/gallery/vertical-stream"
+                        title="VERTICAL STREAM"
+                        description="A vertical stream visual experiment."
+                    />
                 </div>
 
                 <nav className="mt-20">
