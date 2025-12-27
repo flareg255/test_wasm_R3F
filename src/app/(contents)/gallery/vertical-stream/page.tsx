@@ -20,7 +20,7 @@ export default function VerticalStreamPage() {
                     <ambientLight intensity={0.5} />
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
 
-                    <VerticalParticles />
+                    <VerticalParticles radius={10.0} />
 
                     <OrbitControls
                         enableZoom={true}

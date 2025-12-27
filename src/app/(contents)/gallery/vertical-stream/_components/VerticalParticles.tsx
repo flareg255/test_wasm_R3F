@@ -6,14 +6,19 @@ import { initWasm } from "@/src/utils/wasm";
 import { useParticleTexture } from "@/src/hooks/useParticleTexture";
 import { useWasmEngine } from "@/src/hooks/useWasmEngine";
 
-export default function VerticalParticles() {
+interface VerticalParticlesProps {
+    radius?: number;
+    color?: [number, number, number];
+}
+
+export default function VerticalParticles({ radius = 10.0, color = [0.2, 0.8, 1.0] }: VerticalParticlesProps) {
     const pointsRef = useRef<THREE.Points>(null!);
 
     const count = 1000;
 
     const particleTexture = useParticleTexture();
 
-    const engine = useWasmEngine((mod) => new mod.VerticalStreamEngine(count), []);
+    const engine = useWasmEngine((mod) => new mod.VerticalStreamEngine(count, radius), [radius]);
 
     useFrame(() => {
         if (!engine || !pointsRef.current) return;
@@ -42,11 +47,9 @@ export default function VerticalParticles() {
 
             sizes[i] = 1.0 * pulse;
 
-            // Cyan ~ Blue gradient based on pulse or height could be cool
-            // For now, fixed cyan-ish color varying with pulse
-            colors[i * 3 + 0] = 0.2 * pulse; // R
-            colors[i * 3 + 1] = 0.8; // G
-            colors[i * 3 + 2] = 1.0;         // B
+            colors[i * 3 + 0] = color[0] * pulse; // R
+            colors[i * 3 + 1] = color[1] * pulse; // G
+            colors[i * 3 + 2] = color[2] * pulse; // B
         }
 
         attrPos.needsUpdate = true;
