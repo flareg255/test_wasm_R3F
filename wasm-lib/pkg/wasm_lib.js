@@ -233,9 +233,10 @@ export class VerticalStreamEngine {
     }
     /**
      * @param {number} num
+     * @param {number} radius
      */
-    constructor(num) {
-        const ret = wasm.verticalstreamengine_new(num);
+    constructor(num, radius) {
+        const ret = wasm.verticalstreamengine_new(num, radius);
         this.__wbg_ptr = ret >>> 0;
         VerticalStreamEngineFinalization.register(this, this.__wbg_ptr, this);
         return this;

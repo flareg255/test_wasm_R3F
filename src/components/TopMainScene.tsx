@@ -11,7 +11,6 @@ export default function TopMainScene() {
     const [isClient, setIsClient] = useState(false);
     useEffect(() => { setIsClient(true); }, []);
 
-
     if (!isClient) {
         return <div className="main-scene-placeholder" />;
     }
@@ -23,8 +22,8 @@ export default function TopMainScene() {
                 camera={{ position: [0, 2, 6], fov: 75 }}
                 gl={{ antialias: false }}
             >
-                <color attach="background" args={['#101010']} />
-                <fog attach="fog" args={['#101010', 200, 2000]} />
+                <color attach="background" args={['#0a0a0a']} />
+                <fogExp2 attach="fog" args={['#0a0a0a', 0.15]} />
 
                 <ambientLight intensity={0.2} />
 

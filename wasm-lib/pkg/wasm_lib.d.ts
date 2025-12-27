@@ -18,7 +18,7 @@ export class VerticalStreamEngine {
   free(): void;
   [Symbol.dispose](): void;
   get_all_particles(): Float32Array;
-  constructor(num: number);
+  constructor(num: number, radius: number);
   update(): void;
 }
 
@@ -45,7 +45,7 @@ export interface InitOutput {
   readonly wavelineengine_update: (a: number, b: number) => void;
   readonly __wbg_verticalstreamengine_free: (a: number, b: number) => void;
   readonly verticalstreamengine_get_all_particles: (a: number) => [number, number];
-  readonly verticalstreamengine_new: (a: number) => number;
+  readonly verticalstreamengine_new: (a: number, b: number) => number;
   readonly verticalstreamengine_update: (a: number) => void;
   readonly __wbg_physicsengine_free: (a: number, b: number) => void;
   readonly physicsengine_get_all_particles: (a: number) => [number, number];
