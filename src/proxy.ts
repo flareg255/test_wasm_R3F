@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+// Renamed from middleware to proxy as per Next.js warning
+export function proxy(request: NextRequest) {
     const url = request.nextUrl.clone();
     const hostname = request.headers.get('host') || '';
     const currentProto = request.headers.get('x-forwarded-proto') || request.nextUrl.protocol.replace(':', '');
