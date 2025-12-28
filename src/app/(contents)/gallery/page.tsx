@@ -26,6 +26,11 @@ export default function GalleryPage() {
                         title="VERTICAL STREAM"
                         description="A vertical stream visual experiment."
                     />
+                    <GalleryItem
+                        href="/gallery/light-wave"
+                        title="LIGHT WAVE"
+                        description="A GLSL shader experiment featuring a wave of light particles."
+                    />
                 </div>
 
                 <nav className="mt-20">
