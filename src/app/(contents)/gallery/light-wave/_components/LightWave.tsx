@@ -9,6 +9,7 @@ uniform float uTime;
 attribute float aScale;
 attribute float aLineIndex;
 varying vec3 vColor;
+varying float vAlpha;
 
 vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
 vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
@@ -77,6 +78,15 @@ float snoise(vec3 v){
 void main() {
     vec3 pos = position;
     
+    float width = 400.0;
+    float speed = 10.0;
+    
+    pos.x = mod(pos.x + uTime * speed + width * 0.5, width) - width * 0.5;
+    
+    float alpha = smoothstep(-width * 0.5, -width * 0.5 + 50.0, pos.x);
+    alpha *= (1.0 - smoothstep(width * 0.5 - 50.0, width * 0.5, pos.x));
+    vAlpha = alpha;
+    
     float noiseVal = snoise(vec3(pos.x * 0.003, aLineIndex * 100.0, uTime * 0.1));
     float noiseVal2 = snoise(vec3(pos.x * 0.01, aLineIndex * 50.0, uTime * 0.15));
     
@@ -112,6 +122,7 @@ void main() {
 
 const fragmentShader = `
 varying vec3 vColor;
+varying float vAlpha;
 
 void main() {
     float r = distance(gl_PointCoord, vec2(0.5));
@@ -120,7 +131,7 @@ void main() {
     float glow = 1.0 - (r * 2.0);
     glow = pow(glow, 2.0);
     
-    gl_FragColor = vec4(vColor, glow * 0.8);
+    gl_FragColor = vec4(vColor, glow * 0.8 * vAlpha);
 }
 `;
 
@@ -128,7 +139,7 @@ export default function LightWave() {
     const pointsRef = useRef<THREE.Points>(null!);
 
     const numLines = 30;
-    const particlesPerLine = 600;
+    const particlesPerLine = 200;
     const count = numLines * particlesPerLine;
 
     const [positions, scales, lineIndices] = useMemo(() => {
