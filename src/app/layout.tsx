@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter, Teko, Orbitron } from "next/font/google";
 import { GoogleTagManager } from '@next/third-parties/google'
 import "@/src/styles/globals.css";
 import Navigation from "@/src/components/Navigation";
+import { CurrentYear } from "@/src/components/CurrentYear";
 
 
 
@@ -85,7 +86,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <footer className="footer">
-          © {new Date().getFullYear()} ULTRAZONE FACTORY
+          © <CurrentYear fallback={new Date().getFullYear()} /> ULTRAZONE FACTORY
         </footer>
       </body>
     </html>

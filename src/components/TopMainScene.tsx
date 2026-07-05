@@ -18,16 +18,16 @@ export default function TopMainScene() {
     return (
         <div className="main-scene-container">
             <Canvas
-                shadows
                 camera={{ position: [0, 2, 6], fov: 75 }}
                 gl={{ antialias: false }}
+                dpr={[1, 1.5]}
             >
                 <color attach="background" args={['#0a0a0a']} />
                 <fogExp2 attach="fog" args={['#0a0a0a', 0.15]} />
 
                 <ambientLight intensity={0.2} />
 
-                <pointLight position={[10, 10, 10]} intensity={2.0} castShadow color="#00ffff" />
+                <pointLight position={[10, 10, 10]} intensity={2.0} color="#00ffff" />
                 <pointLight position={[-10, -5, -5]} intensity={1.0} color="#ff00ff" />
 
                 <OrbitControls

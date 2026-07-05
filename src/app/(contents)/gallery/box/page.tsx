@@ -11,7 +11,7 @@ export default function BoxPage() {
                 <h2 className="text-4xl font-teko text-white tracking-widest">WASM ROTATION CUBE</h2>
             </div>
 
-            <Canvas camera={{ position: [0, 0, 5] }}>
+            <Canvas camera={{ position: [0, 0, 5] }} dpr={[1, 1.5]}>
                 <ambientLight intensity={0.5} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <pointLight position={[-10, -10, -10]} />

@@ -16,6 +16,7 @@ export default function LightWavePage() {
                 <Canvas
                     camera={{ position: [50, 80, 100], fov: 60 }}
                     className="full-size-canvas"
+                    dpr={[1, 1.5]}
                 >
                     <color attach="background" args={['#0a0a0a']} />
 
