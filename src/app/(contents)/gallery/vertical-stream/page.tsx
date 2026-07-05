@@ -15,6 +15,7 @@ export default function VerticalStreamPage() {
                 <Canvas
                     camera={{ position: [0, 0, 15], fov: 60 }}
                     className="full-size-canvas"
+                    dpr={[1, 1.5]}
                 >
                     <color attach="background" args={['#0a0a0a']} />
                     <ambientLight intensity={0.5} />
