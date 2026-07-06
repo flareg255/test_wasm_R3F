@@ -212,6 +212,26 @@ body {
   height: 100%;
 }
 
+.aurora-main {
+  position: relative;
+  background-color: #0a0a0a;
+  width: 100%;
+}
+
+.aurora-title-container {
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+  padding-bottom: 2rem;
+}
+
+.aurora-canvas-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 300px);
+}
+
 /* Gallery Item Styles */
 .gallery-item-link {
   display: block;

@@ -31,6 +31,11 @@ export default function GalleryPage() {
                         title="LIGHT WAVE"
                         description="A GLSL shader experiment featuring a wave of light particles."
                     />
+                    <GalleryItem
+                        href="/gallery/aurora"
+                        title="AURORA"
+                        description="An aurora and luminous fog shader with a drifting particle field."
+                    />
                 </div>
 
                 <nav className="mt-20">
