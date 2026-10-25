@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -135,45 +135,48 @@ void main() {
 }
 `;
 
+const numLines = 30;
+const particlesPerLine = 200;
+const count = numLines * particlesPerLine;
+
+// 粒子の位置・大きさ・所属ライン番号をランダムに生成する(マウント時に1回だけ呼ぶ)
+function createParticleAttributes(): [Float32Array, Float32Array, Float32Array] {
+    const positions = new Float32Array(count * 3);
+    const scales = new Float32Array(count);
+    const lineIndices = new Float32Array(count);
+
+    const width = 400;
+    const depth = 300;
+    const tubeRadius = 2.0;
+
+    for (let l = 0; l < numLines; l++) {
+        const lineNorm = l / numLines;
+        const zBase = (lineNorm - 0.5) * depth;
+
+        for (let i = 0; i < particlesPerLine; i++) {
+            const idx = (l * particlesPerLine + i);
+            const i3 = idx * 3;
+
+            positions[i3] = (Math.random() - 0.5) * width;
+
+            const phi = Math.random() * Math.PI * 2.0;
+            const r = Math.random() * tubeRadius;
+
+            positions[i3 + 1] = Math.sin(phi) * r;
+            positions[i3 + 2] = zBase + Math.cos(phi) * r;
+
+            scales[idx] = Math.random() * 2.0 + 0.5;
+            lineIndices[idx] = lineNorm;
+        }
+    }
+
+    return [positions, scales, lineIndices];
+}
+
 export default function LightWave() {
     const pointsRef = useRef<THREE.Points>(null!);
 
-    const numLines = 30;
-    const particlesPerLine = 200;
-    const count = numLines * particlesPerLine;
-
-    const [positions, scales, lineIndices] = useMemo(() => {
-        const positions = new Float32Array(count * 3);
-        const scales = new Float32Array(count);
-        const lineIndices = new Float32Array(count);
-
-        const width = 400;
-        const depth = 300;
-        const tubeRadius = 2.0;
-
-        for (let l = 0; l < numLines; l++) {
-            const lineNorm = l / numLines;
-            const zBase = (lineNorm - 0.5) * depth;
-
-            for (let i = 0; i < particlesPerLine; i++) {
-                const idx = (l * particlesPerLine + i);
-                const i3 = idx * 3;
-
-                positions[i3] = (Math.random() - 0.5) * width;
-
-                const phi = Math.random() * Math.PI * 2.0;
-                const r = Math.random() * tubeRadius;
-
-                positions[i3 + 1] = Math.sin(phi) * r;
-                positions[i3 + 2] = zBase + Math.cos(phi) * r;
-
-                scales[idx] = Math.random() * 2.0 + 0.5;
-                lineIndices[idx] = lineNorm;
-            }
-        }
-
-        return [positions, scales, lineIndices];
-    }, []);
+    const [[positions, scales, lineIndices]] = useState(createParticleAttributes);
 
     const uniforms = useMemo(() => ({
         uTime: { value: 0 }

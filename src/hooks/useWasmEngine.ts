@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
-import { initWasm } from '../utils/wasm';
+import { useState, useEffect, type DependencyList } from 'react';
+import { initWasm, type WasmModule } from '../utils/wasm';
 
 type WasmEngine = {
     free?: () => void;
-    [key: string]: any;
 };
 
 export function useWasmEngine<T extends WasmEngine>(
-    createEngine: (module: any) => T,
-    deps: any[] = []
+    createEngine: (module: WasmModule) => T,
+    deps: DependencyList = []
 ): T | null {
     const [engine, setEngine] = useState<T | null>(null);
 

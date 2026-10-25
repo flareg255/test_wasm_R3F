@@ -2,7 +2,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Box from "./Box";
-import Link from "next/link";
 
 export default function BoxPage() {
     return (

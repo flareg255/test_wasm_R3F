@@ -1,4 +1,14 @@
-let wasmInitPromise: Promise<typeof import("@/wasm-lib/pkg/wasm_lib")> | null = null;
+// WASM モジュール(wasm-pack が生成したバインディング)の型
+export type WasmModule = typeof import("@/wasm-lib/pkg/wasm_lib");
+
+declare global {
+    interface Window {
+        // WaveLine の描画で WASM の線形メモリを直接参照するために公開する
+        wasmMemory?: WebAssembly.Memory;
+    }
+}
+
+let wasmInitPromise: Promise<WasmModule> | null = null;
 
 
 export const initWasm = async () => {
@@ -8,9 +18,9 @@ export const initWasm = async () => {
             const exports = await mod.default();
 
 
-            if (!(window as any).wasmMemory) {
+            if (!window.wasmMemory) {
 
-                (window as any).wasmMemory = exports.memory;
+                window.wasmMemory = exports.memory;
             }
 
             return mod;
@@ -19,4 +29,3 @@ export const initWasm = async () => {
     }
     return wasmInitPromise;
 };
-

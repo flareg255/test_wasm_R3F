@@ -1,21 +1,22 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+// 正規ホスト(リダイレクト先はリクエストの Host ヘッダーから組み立てず固定値を使う)
+const CANONICAL_HOST = 'ultrazone.blue';
+const WWW_HOST = `www.${CANONICAL_HOST}`;
+
 export function proxy(request: NextRequest) {
     const url = request.nextUrl.clone();
     const hostname = request.headers.get('host') || '';
-    const currentProto = request.headers.get('x-forwarded-proto') || request.nextUrl.protocol.replace(':', '');
-    const isDev = process.env.NODE_ENV === 'development';
 
     let needsRedirect = false;
 
-    if (!isDev && hostname.startsWith('www.')) {
-        url.hostname = hostname.replace('www.', '');
-        needsRedirect = true;
-    }
-
-    if (!isDev && currentProto === 'http') {
+    // www 付きの正規ドメインだけを完全一致で判定する(プレビュー環境や localhost には影響しない)
+    // http → https の変換は Vercel のエッジが行うため、ここでは扱わない
+    if (hostname === WWW_HOST) {
         url.protocol = 'https';
+        url.hostname = CANONICAL_HOST;
+        url.port = '';
         needsRedirect = true;
     }
 

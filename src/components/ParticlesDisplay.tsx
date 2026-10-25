@@ -1,8 +1,7 @@
 "use client";
-import { useRef, useEffect, useState, useMemo } from "react";
+import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { initWasm } from "../utils/wasm";
 import { useParticleTexture } from "../hooks/useParticleTexture";
 import { useWasmEngine } from "../hooks/useWasmEngine";
 
