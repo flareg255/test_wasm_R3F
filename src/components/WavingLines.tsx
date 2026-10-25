@@ -2,9 +2,18 @@
 import { useRef, useMemo, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { initWasm } from "../utils/wasm";
+import type { WaveLineEngine } from "@/wasm-lib/pkg/wasm_lib";
 import { useWasmEngine } from "../hooks/useWasmEngine";
 
+// 各ラインの色・太さ・発光強度をランダムに決める(マウント時に1回だけ呼ぶ)
+function createLineParams(lineCount: number) {
+    return new Array(lineCount).fill(0).map((_, i) => ({
+        id: i,
+        color: ["#00ffff", "#ff00ff", "#00ff88"][Math.floor(Math.random() * 3)],
+        thickness: Math.random() * 0.05 + 0.01,
+        intensity: Math.random() * 0.8 + 0.2,
+    }));
+}
 
 const SingleLine = ({
 
@@ -17,7 +26,7 @@ const SingleLine = ({
     intensity
 }: {
     id: number;
-    engine: any;
+    engine: WaveLineEngine;
     color: string;
     width: number;
     thickness: number;
@@ -75,7 +84,7 @@ const SingleLine = ({
 
         const wavePtr = engine.get_wave_values(id);
 
-        const memory = (window as any).wasmMemory;
+        const memory = window.wasmMemory;
 
 
         if (!memory) return;
@@ -130,16 +139,7 @@ export default function WavingLines() {
         }
     });
 
-    const lines = useMemo(() => {
-        return new Array(lineCount).fill(0).map((_, i) => ({
-            id: i,
-            color: ["#00ffff", "#ff00ff", "#00ff88"][Math.floor(Math.random() * 3)],
-            thickness: Math.random() * 0.05 + 0.01,
-            intensity: Math.random() * 0.8 + 0.2,
-        }));
-
-
-    }, [lineCount]);
+    const [lines] = useState(() => createLineParams(lineCount));
 
     if (!engine) return null;
 

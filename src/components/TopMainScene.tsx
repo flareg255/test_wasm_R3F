@@ -3,13 +3,12 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import { useState, useEffect } from "react";
 import ParticlesDisplay from "./ParticlesDisplay";
 import WavingLines from "./WavingLines";
+import { useIsClient } from "../hooks/useIsClient";
 
 export default function TopMainScene() {
-    const [isClient, setIsClient] = useState(false);
-    useEffect(() => { setIsClient(true); }, []);
+    const isClient = useIsClient();
 
     if (!isClient) {
         return <div className="main-scene-placeholder" />;

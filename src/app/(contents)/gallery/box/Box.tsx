@@ -1,13 +1,13 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, type ThreeElements } from "@react-three/fiber";
 import { Mesh } from "three";
-import { initWasm } from "@/src/utils/wasm";
+import { initWasm, type WasmModule } from "@/src/utils/wasm";
 
-export default function Box(props: any) {
+export default function Box(props: ThreeElements["mesh"]) {
     const meshRef = useRef<Mesh>(null!);
     const [hovered, setHover] = useState(false);
-    const [wasmModule, setWasmModule] = useState<any>(null);
+    const [wasmModule, setWasmModule] = useState<WasmModule | null>(null);
 
     useEffect(() => {
         initWasm().then((module) => {
@@ -15,7 +15,7 @@ export default function Box(props: any) {
         });
     }, []);
 
-    useFrame((state, delta) => {
+    useFrame((state) => {
         if (wasmModule && typeof wasmModule.calculate_rotation === "function") {
             try {
                 const rotation = wasmModule.calculate_rotation(state.clock.elapsedTime);

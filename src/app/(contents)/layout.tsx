@@ -2,19 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useIsClient } from "@/src/hooks/useIsClient";
 
 export default function ContentLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    const [isClient, setIsClient] = useState(false);
+    const isClient = useIsClient();
     const pathname = usePathname();
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
     if (!isClient) {
         return null;

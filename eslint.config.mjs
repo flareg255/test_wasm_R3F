@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // wasm-pack が生成するバインディングとRustのビルド成果物は対象外
+    "wasm-lib/pkg/**",
+    "wasm-lib/target/**",
   ]),
 ]);
 

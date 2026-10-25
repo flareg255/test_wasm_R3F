@@ -1,16 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
+
+// 値の変化を通知する必要はないため購読は何もしない
+const subscribe = () => () => {};
 
 // コピーライト表記の年を表示するコンポーネント。
-// fallback（ビルド時の年）を初期値にすることで SSR と初回描画を一致させ、
-// hydration 不一致を避けつつ、マウント後に閲覧者の現在年へ更新する。
+// SSR とハイドレーション時は fallback（ビルド時の年）を使って hydration 不一致を避け、
+// ハイドレーション後は閲覧者の現在年を表示する。
 export function CurrentYear({ fallback }: { fallback: number }) {
-    const [year, setYear] = useState(fallback);
-
-    useEffect(() => {
-        setYear(new Date().getFullYear());
-    }, []);
+    const year = useSyncExternalStore(
+        subscribe,
+        () => new Date().getFullYear(),
+        () => fallback,
+    );
 
     return <>{year}</>;
 }
