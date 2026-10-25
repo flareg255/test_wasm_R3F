@@ -31,8 +31,9 @@ const csp = [
 ].join("; ");
 
 const securityHeaders = [
-  // まずは Report-Only で導入し、違反がないことを確認してから Content-Security-Policy に切り替える
-  { key: "Content-Security-Policy-Report-Only", value: csp },
+  // Report-Only で全ページの違反なしを確認済みのため強制モードで適用する
+  // GTM に新しいタグを追加する際は、そのタグの通信先を上の許可リストに追加すること
+  { key: "Content-Security-Policy", value: csp },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
