@@ -1,0 +1,32 @@
+# Dependabot による依存パッケージの自動更新設定
+# 更新があると PR が作られる(自動マージはしない)。Vercel のプレビューで動作確認してからマージする。
+version: 2
+updates:
+  # Next.js 側(package.json)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+    groups:
+      # マイナー・パッチ更新は1つの PR にまとめて PR の数を抑える
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Rust 側(wasm-lib/Cargo.toml)
+  # 注意:マージ後に `wasm-pack build --target web` で wasm-lib/pkg/ を再生成してコミットしないと反映されない
+  - package-ecosystem: "cargo"
+    directory: "/wasm-lib"
+    schedule:
+      interval: "monthly"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 3
+    groups:
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
