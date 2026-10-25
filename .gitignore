@@ -47,4 +47,6 @@ next-env.d.ts
 wasm-lib/target/
 
 # Next.js
+# next dev が自動生成するエージェント向けファイル
+AGENTS.md
 
