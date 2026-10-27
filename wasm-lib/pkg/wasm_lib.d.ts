@@ -37,16 +37,16 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
+  readonly __wbg_verticalstreamengine_free: (a: number, b: number) => void;
   readonly __wbg_wavelineengine_free: (a: number, b: number) => void;
   readonly calculate_rotation: (a: number) => number;
+  readonly verticalstreamengine_get_all_particles: (a: number) => [number, number];
+  readonly verticalstreamengine_new: (a: number, b: number) => number;
+  readonly verticalstreamengine_update: (a: number) => void;
   readonly wavelineengine_get_wave_values: (a: number, b: number) => number;
   readonly wavelineengine_get_z_offset: (a: number, b: number) => number;
   readonly wavelineengine_new: (a: number, b: number, c: number) => number;
   readonly wavelineengine_update: (a: number, b: number) => void;
-  readonly __wbg_verticalstreamengine_free: (a: number, b: number) => void;
-  readonly verticalstreamengine_get_all_particles: (a: number) => [number, number];
-  readonly verticalstreamengine_new: (a: number, b: number) => number;
-  readonly verticalstreamengine_update: (a: number) => void;
   readonly __wbg_physicsengine_free: (a: number, b: number) => void;
   readonly physicsengine_get_all_particles: (a: number) => [number, number];
   readonly physicsengine_get_brightness: (a: number, b: number) => number;
