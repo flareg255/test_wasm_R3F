@@ -10,6 +10,10 @@ updates:
       day: "monday"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 5
+    # メジャー更新は互換性の確認と改修が必要なため自動 PR の対象外にする(セキュリティ更新は対象のまま)
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     groups:
       # マイナー・パッチ更新は1つの PR にまとめて PR の数を抑える
       minor-and-patch:
@@ -25,6 +29,11 @@ updates:
       interval: "monthly"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 3
+    # Rust の 0.x クレートはマイナー更新(例: rand 0.8→0.10)でも互換性が壊れるため、
+    # メジャー・マイナー更新を自動 PR の対象外にし、パッチ更新のみ受け取る(セキュリティ更新は対象のまま)
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
     groups:
       minor-and-patch:
         update-types:
