@@ -15,6 +15,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         route = route.replace(/\\/g, '/')
 
+        // (contents) のようなルートグループのフォルダは URL に含まれないため取り除く
+        route = route.split('/').filter((segment) => !/^\(.+\)$/.test(segment)).join('/')
+
         if (route && !route.startsWith('/')) {
             route = `/${route}`
         }
