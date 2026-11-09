@@ -15,7 +15,6 @@
     "@react-three/postprocessing": "^3.2.2",
     "@types/three": "^0.185.0",
     "framer-motion": "^12.43.0",
-    "glob": "^13.0.6",
     "next": "16.4.3",
     "react": "19.3.1",
     "react-dom": "19.3.1",
