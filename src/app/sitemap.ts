@@ -1,13 +1,17 @@
 import { MetadataRoute } from 'next'
-import { glob } from 'glob'
+import { readdir } from 'fs/promises'
 import path from 'path'
 
 const BASE_URL = 'https://ultrazone.blue'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const pages = await glob('**/page.tsx', {
-        cwd: path.join(process.cwd(), 'src/app'),
-        ignore: ['**/api/**', '**/_*/**']
+    // src/app 以下の page.tsx を再帰的に探す
+    // api フォルダ、_ で始まるフォルダ(ページ専用の部品置き場)、. で始まるフォルダは対象外にする
+    const files = await readdir(path.join(process.cwd(), 'src/app'), { recursive: true })
+    const pages = files.filter((file) => {
+        const segments = file.split(/[\\/]/)
+        return segments.at(-1) === 'page.tsx'
+            && !segments.some((segment) => segment === 'api' || segment.startsWith('_') || segment.startsWith('.'))
     })
 
     const sitemapEntries: MetadataRoute.Sitemap = pages.map((pagePath: string) => {
